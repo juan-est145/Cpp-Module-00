@@ -6,7 +6,7 @@
 /*   By: juestrel <juestrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 17:08:43 by juestrel          #+#    #+#             */
-/*   Updated: 2024/07/28 19:01:56 by juestrel         ###   ########.fr       */
+/*   Updated: 2024/07/28 19:29:38 by juestrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,31 +22,28 @@ void greeting()
 	std::cout << "SEARCH: Display a specific contact\n";
 	std::cout << "EXIT: Quits the program and deletes all contacts\n" << std::endl;
 }
+std::string getParameter(std::string parameter)
+{
+	std::string data;
+	std::string warning = "Empty inputs are not valid";
+
+	std::cout << "Enter "<< parameter << std::endl;
+	do
+	{
+		std::getline(std::cin, data);
+		if (data.empty())
+			std::cout << warning << std::endl;
+	} while (data.empty());
+	return (data);
+}
 
 void add(PhoneBook *phoneBook)
 {
-	std::string firstName;
-	std::string lastName;
-	std::string nickName;
-	std::string phone;
-	std::string secret;
-	std::string warning = "Empty inputs are not valid";
-
-	std::cout << "Enter first name" << std::endl;
-	while (std::cin >> firstName, firstName.length() <= 0)
-		std::cout << warning << std::endl;
-	std::cout << "Enter last name" << std::endl;
-	while (std::cin >> lastName, lastName.length() <= 0)
-		std::cout << warning << std::endl;
-	std::cout << "Enter nickname" << std::endl;
-	while (std::cin >> nickName, nickName.length() <= 0)
-		std::cout << warning << std::endl;
-	std::cout << "Enter phone" << std::endl;
-	while (std::cin >> phone, phone.length() <= 0)
-		std::cout << warning << std::endl;
-	std::cout << "Enter secret" << std::endl;
-	while (std::cin >> secret, secret.length() <= 0)
-		std::cout << warning << std::endl;
+	std::string firstName = getParameter("first name");
+	std::string lastName = getParameter("last name");
+	std::string nickName = getParameter("nickname");
+	std::string phone = getParameter("phone number");
+	std::string secret = getParameter("secret");
 	phoneBook->add(Contact(firstName, lastName, nickName, phone, secret));
 	std::cout << "Data insertion was successful, please enter another command\n" << std::endl;
 }
