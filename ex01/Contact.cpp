@@ -6,11 +6,13 @@
 /*   By: juestrel <juestrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 17:02:56 by juestrel          #+#    #+#             */
-/*   Updated: 2024/07/28 17:04:47 by juestrel         ###   ########.fr       */
+/*   Updated: 2024/07/28 18:20:26 by juestrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Contact.hpp"
+
+Contact::Contact() {}
 
 Contact::Contact(
 	std::string firstName,
@@ -25,3 +27,5 @@ Contact::Contact(
 	this->phoneNumber = phoneNumber;
 	this->darkestSecret = darkestSecret;
 }
+
+Contact::~Contact() {}
