@@ -3,11 +3,13 @@ NAME = phonebook.out
 SRCS = Contact.cpp\
 PhoneBook.cpp\
 main.cpp\
+addCmd.cpp\
 
 OBJS = $(SRCS:.cpp=.o)
 
 HEADER = Contact.hpp\
 PhoneBook.hpp\
+main.hpp\
 
 CXX = $(shell which c++ clang++ g++ | head -n 1)
 
