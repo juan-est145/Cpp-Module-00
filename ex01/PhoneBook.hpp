@@ -11,6 +11,7 @@ private:
 	unsigned int size;
 	Contact getNewContact();
 	std::string getParameter(std::string parameter);
+	void showContacts();
 	void printField(std::string contactField);
 
 public:
@@ -18,5 +19,6 @@ public:
 	~PhoneBook();
 	void add();
 	void search();
+	unsigned int getSize();
 };
 #endif

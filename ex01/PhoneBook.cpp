@@ -6,7 +6,7 @@
 /*   By: juestrel <juestrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 17:07:21 by juestrel          #+#    #+#             */
-/*   Updated: 2024/07/28 21:44:05 by juestrel         ###   ########.fr       */
+/*   Updated: 2024/07/28 22:08:56 by juestrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,22 @@ std::string PhoneBook::getParameter(std::string parameter)
 	return (data);
 }
 
+void PhoneBook::showContacts()
+{
+	for (unsigned int i = 0; i < size; i++)
+	{
+		if (contacts[i].getFirstName().length() <= 0)
+			break;
+		std::ostringstream numberStr;
+		numberStr << i;
+		this->printField(numberStr.str());
+		this->printField(contacts[i].getFirstName());
+		this->printField(contacts[i].getLastName());
+		this->printField(contacts[i].getNickName());
+		std::cout << std::endl;
+	}
+}
+
 void PhoneBook::printField(std::string contactField)
 {
 	unsigned int columnSpace = contactField.length() >= 10 ? 0 : 10 - contactField.length();
@@ -71,18 +87,32 @@ void PhoneBook::add()
 
 void PhoneBook::search()
 {
+	unsigned int indexSelect;
+	bool breakLoop = false;
+	
 	if (contacts[0].getFirstName().length() <= 0)
-		std::cout << "There are no contacts yet" << std::endl;
-	for (unsigned int i = 0; i < size; i++)
 	{
-		if (contacts[i].getFirstName().length() <= 0)
-			break;
-		std::ostringstream numberStr;
-		numberStr << i;
-		this->printField(numberStr.str());
-		this->printField(contacts[i].getFirstName());
-		this->printField(contacts[i].getLastName());
-		this->printField(contacts[i].getNickName());
-		std::cout << std::endl;
+		std::cout << "There are no contacts yet" << std::endl;
+		return;
 	}
+	this->showContacts();
+	std::cout << "Select the index for the contact you want to see all the information of" << std::endl;
+	while (!breakLoop)
+	{
+		std::cin >> indexSelect;
+		if (indexSelect >= this->getSize() || contacts[indexSelect].getFirstName().length() <= 0)
+			std::cout<< "Invalid index, select any of the previously shown indexes" << std::endl;
+		else
+			breakLoop = true;
+	}
+	std::cout << contacts[indexSelect].getFirstName() << '\n';
+	std::cout << contacts[indexSelect].getLastName() << '\n';
+	std::cout << contacts[indexSelect].getNickName() << '\n';
+	std::cout << contacts[indexSelect].getPhoneNumber() << '\n';
+	std::cout << contacts[indexSelect].getDarkestSecret() << std::endl;
+}
+
+unsigned int PhoneBook::getSize()
+{
+	return (this->size);
 }
