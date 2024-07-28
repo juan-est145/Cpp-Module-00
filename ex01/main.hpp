@@ -6,6 +6,4 @@
 #include "Contact.hpp"
 
 void greeting();
-void add(PhoneBook *phoneBook);
-std::string getParameter(std::string parameter);
 #endif

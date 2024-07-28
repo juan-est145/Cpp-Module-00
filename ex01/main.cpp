@@ -6,7 +6,7 @@
 /*   By: juestrel <juestrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 17:08:43 by juestrel          #+#    #+#             */
-/*   Updated: 2024/07/28 19:47:35 by juestrel         ###   ########.fr       */
+/*   Updated: 2024/07/28 20:35:14 by juestrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,9 @@ int main(void)
 	while (std::getline(std::cin, cmd), cmd != "EXIT")
 	{
 		if (cmd == "ADD")
-			add(&phoneBook);
+			phoneBook.add();
 		else if (cmd == "SEARCH")
-			std::cout << "SEARCH has been called" << std::endl;
+			phoneBook.search();
 		else
 			std::cout << "Try again" << std::endl;
 	}
