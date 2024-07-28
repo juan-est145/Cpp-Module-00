@@ -6,7 +6,7 @@
 /*   By: juestrel <juestrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 17:07:21 by juestrel          #+#    #+#             */
-/*   Updated: 2024/07/28 22:08:56 by juestrel         ###   ########.fr       */
+/*   Updated: 2024/07/28 22:20:51 by juestrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,8 +87,9 @@ void PhoneBook::add()
 
 void PhoneBook::search()
 {
-	unsigned int indexSelect;
+	std::string indexSelect;
 	bool breakLoop = false;
+	unsigned int number;
 	
 	if (contacts[0].getFirstName().length() <= 0)
 	{
@@ -99,17 +100,18 @@ void PhoneBook::search()
 	std::cout << "Select the index for the contact you want to see all the information of" << std::endl;
 	while (!breakLoop)
 	{
-		std::cin >> indexSelect;
-		if (indexSelect >= this->getSize() || contacts[indexSelect].getFirstName().length() <= 0)
+		std::getline(std::cin, indexSelect);
+		number = (unsigned int)atoi(indexSelect.c_str());
+		if ((number == 0 && indexSelect[0] != '0') || number >= this->getSize() || contacts[number].getFirstName().length() <= 0)
 			std::cout<< "Invalid index, select any of the previously shown indexes" << std::endl;
 		else
 			breakLoop = true;
 	}
-	std::cout << contacts[indexSelect].getFirstName() << '\n';
-	std::cout << contacts[indexSelect].getLastName() << '\n';
-	std::cout << contacts[indexSelect].getNickName() << '\n';
-	std::cout << contacts[indexSelect].getPhoneNumber() << '\n';
-	std::cout << contacts[indexSelect].getDarkestSecret() << std::endl;
+	std::cout << contacts[number].getFirstName() << '\n';
+	std::cout << contacts[number].getLastName() << '\n';
+	std::cout << contacts[number].getNickName() << '\n';
+	std::cout << contacts[number].getPhoneNumber() << '\n';
+	std::cout << contacts[number].getDarkestSecret() << std::endl;
 }
 
 unsigned int PhoneBook::getSize()
