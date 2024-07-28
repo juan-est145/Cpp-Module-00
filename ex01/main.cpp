@@ -6,7 +6,7 @@
 /*   By: juestrel <juestrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 17:08:43 by juestrel          #+#    #+#             */
-/*   Updated: 2024/07/28 19:38:44 by juestrel         ###   ########.fr       */
+/*   Updated: 2024/07/28 19:47:35 by juestrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int main(void)
 	std::string cmd;
 
 	greeting();
-	while (std::cin >> cmd, cmd != "EXIT")
+	while (std::getline(std::cin, cmd), cmd != "EXIT")
 	{
 		if (cmd == "ADD")
 			add(&phoneBook);
