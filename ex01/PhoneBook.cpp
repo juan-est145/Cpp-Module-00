@@ -6,7 +6,7 @@
 /*   By: juestrel <juestrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 17:07:21 by juestrel          #+#    #+#             */
-/*   Updated: 2024/07/28 21:31:43 by juestrel         ###   ########.fr       */
+/*   Updated: 2024/07/28 21:44:05 by juestrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,11 +49,14 @@ std::string PhoneBook::getParameter(std::string parameter)
 
 void PhoneBook::printField(std::string contactField)
 {
-	unsigned int columnSpace = contactField.length() > 10 ? 0 : 10 - contactField.length();
+	unsigned int columnSpace = contactField.length() >= 10 ? 0 : 10 - contactField.length();
 	std::cout << "|";
 	for (unsigned int i = 0; i < columnSpace; i++)
 		std::cout << " ";
-	std::cout << contactField.substr(0, 10) << "|";
+	std::cout << contactField.substr(0, 9);
+	if (columnSpace == 0)
+		std::cout << ".";
+	std::cout << "|";
 }
 
 void PhoneBook::add()
