@@ -1,8 +1,13 @@
 NAME = phonebook.out
 
-SRCS = #megaphone.cpp
+SRCS = Contact.cpp\
+PhoneBook.cpp\
+main.cpp\
 
 OBJS = $(SRCS:.cpp=.o)
+
+HEADER = Contact.hpp\
+PhoneBook.hpp\
 
 CXX = $(shell which c++ clang++ g++ | head -n 1)
 
@@ -12,7 +17,7 @@ RM = rm -rf
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) $(HEADER)
 	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
 
 clean:
