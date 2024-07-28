@@ -2,7 +2,7 @@ NAME = megaphone.out
 
 SRCS = megaphone.cpp
 
-OBJS = $(SRCS:.c=.o)
+OBJS = $(SRCS:.cpp=.o)
 
 CXX = $(shell which c++ clang++ g++ | head -n 1)
 
@@ -14,3 +14,16 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
+
+clean:
+	$(RM) $(OBJS)
+
+fclean: clean
+	$(RM) $(NAME)
+
+
+re: fclean
+	$(MAKE) all
+
+debug: CXXFLAGS += -g
+debug: $(NAME)
