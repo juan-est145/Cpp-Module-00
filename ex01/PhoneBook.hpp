@@ -8,7 +8,7 @@ private:
 public:
 	PhoneBook();
 	~PhoneBook();
-	void add(Contact contact);
+	void add(Contact newContact);
 	void search();
 };
 #endif
