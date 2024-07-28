@@ -6,7 +6,7 @@
 /*   By: juestrel <juestrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 17:08:43 by juestrel          #+#    #+#             */
-/*   Updated: 2024/07/28 18:21:51 by juestrel         ###   ########.fr       */
+/*   Updated: 2024/07/28 18:27:21 by juestrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,12 @@ int main(void)
 	greeting();
 	while (std::cin >> cmd, cmd != "EXIT")
 	{
-		std::cout << "Try again" << std::endl;
+		if (cmd == "ADD")
+			std::cout << "ADD has been called" << std::endl;
+		else if (cmd == "SEARCH")
+			std::cout << "SEARCH has been called" << std::endl;
+		else
+			std::cout << "Try again" << std::endl;
 	}
 	
 	return (0);
