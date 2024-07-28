@@ -1,4 +1,4 @@
-NAME = megaphone.out
+NAME = megaphone
 
 SRCS = megaphone.cpp
 
