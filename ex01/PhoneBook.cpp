@@ -6,13 +6,16 @@
 /*   By: juestrel <juestrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 17:07:21 by juestrel          #+#    #+#             */
-/*   Updated: 2024/07/28 20:32:16 by juestrel         ###   ########.fr       */
+/*   Updated: 2024/07/28 21:04:18 by juestrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook() {}
+PhoneBook::PhoneBook() 
+{
+	size = (unsigned int)(sizeof(contacts) / sizeof(contacts[0]));
+}
 
 PhoneBook::~PhoneBook() {}
 
@@ -47,7 +50,6 @@ std::string PhoneBook::getParameter(std::string parameter)
 void PhoneBook::add()
 {
 	static unsigned int index = 0;
-	unsigned int size = (unsigned int)(sizeof(contacts) / sizeof(contacts[0]));
 	Contact newContact = this->getNewContact();
 	
 	index = index % size;
@@ -56,5 +58,13 @@ void PhoneBook::add()
 }
 void PhoneBook::search()
 {
-	std::cout << "This method is yet to be defined" << std::endl;
+	if (contacts[0].getFirstName().length() <= 0)
+		std::cout << "There are no contacts yet" << std::endl;
+	for (unsigned int i = 0; i < size; i++)
+	{
+		if (contacts[i].getFirstName().length() <= 0)
+			break;
+		std::cout << "|          |" << std::endl;
+	}
+	
 }

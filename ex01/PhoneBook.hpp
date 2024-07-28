@@ -7,6 +7,7 @@ class PhoneBook
 {
 private:
 	Contact contacts[8];
+	unsigned int size;
 	Contact getNewContact();
 	std::string getParameter(std::string parameter);
 
