@@ -3,6 +3,7 @@
 #include "Contact.hpp"
 #include <string>
 #include <iostream>
+#include <sstream>
 class PhoneBook
 {
 private:
@@ -10,6 +11,7 @@ private:
 	unsigned int size;
 	Contact getNewContact();
 	std::string getParameter(std::string parameter);
+	void printField(std::string contactField);
 
 public:
 	PhoneBook();

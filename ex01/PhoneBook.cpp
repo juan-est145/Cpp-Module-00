@@ -6,13 +6,13 @@
 /*   By: juestrel <juestrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 17:07:21 by juestrel          #+#    #+#             */
-/*   Updated: 2024/07/28 21:04:18 by juestrel         ###   ########.fr       */
+/*   Updated: 2024/07/28 21:31:43 by juestrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
-PhoneBook::PhoneBook() 
+PhoneBook::PhoneBook()
 {
 	size = (unsigned int)(sizeof(contacts) / sizeof(contacts[0]));
 }
@@ -47,15 +47,25 @@ std::string PhoneBook::getParameter(std::string parameter)
 	return (data);
 }
 
+void PhoneBook::printField(std::string contactField)
+{
+	unsigned int columnSpace = contactField.length() > 10 ? 0 : 10 - contactField.length();
+	std::cout << "|";
+	for (unsigned int i = 0; i < columnSpace; i++)
+		std::cout << " ";
+	std::cout << contactField.substr(0, 10) << "|";
+}
+
 void PhoneBook::add()
 {
 	static unsigned int index = 0;
 	Contact newContact = this->getNewContact();
-	
+
 	index = index % size;
 	contacts[index] = newContact;
 	index++;
 }
+
 void PhoneBook::search()
 {
 	if (contacts[0].getFirstName().length() <= 0)
@@ -64,7 +74,12 @@ void PhoneBook::search()
 	{
 		if (contacts[i].getFirstName().length() <= 0)
 			break;
-		std::cout << "|          |" << std::endl;
+		std::ostringstream numberStr;
+		numberStr << i;
+		this->printField(numberStr.str());
+		this->printField(contacts[i].getFirstName());
+		this->printField(contacts[i].getLastName());
+		this->printField(contacts[i].getNickName());
+		std::cout << std::endl;
 	}
-	
 }
