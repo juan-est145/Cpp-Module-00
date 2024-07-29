@@ -6,7 +6,7 @@
 /*   By: juestrel <juestrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 14:48:14 by juestrel          #+#    #+#             */
-/*   Updated: 2024/07/29 20:48:50 by juestrel         ###   ########.fr       */
+/*   Updated: 2024/07/29 20:51:26 by juestrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,8 +46,6 @@ void Account::displayAccountsInfos(void)
 	std::cout << "accounts:" << _nbAccounts << ";total:" << _totalAmount << ";deposits:"
 			  << _totalNbDeposits << ";withdrawals:" << _totalNbWithdrawals << std::endl;
 }
-
-// Try to later erase the : statements of later
 
 Account::Account(int initial_deposit)
 	: _accountIndex(_nbAccounts),
