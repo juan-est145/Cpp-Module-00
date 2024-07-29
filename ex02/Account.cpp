@@ -6,7 +6,7 @@
 /*   By: juestrel <juestrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 14:48:14 by juestrel          #+#    #+#             */
-/*   Updated: 2024/07/29 15:19:26 by juestrel         ###   ########.fr       */
+/*   Updated: 2024/07/29 19:11:48 by juestrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,33 @@ int Account::_nbAccounts = 0;
 int Account::_totalAmount = 0;
 int Account::_totalNbDeposits = 0;
 int Account::_totalNbWithdrawals = 0;
+
+int Account::getNbAccounts(void)
+{
+	return (_nbAccounts);
+}
+
+int Account::getTotalAmount(void)
+{
+	return (_totalAmount);
+}
+
+int Account::getNbDeposits(void)
+{
+	return (_totalNbDeposits);
+}
+
+int Account::getNbWithdrawals(void)
+{
+	return (_totalNbWithdrawals);
+}
+
+void Account::displayAccountsInfos(void)
+{
+	_displayTimestamp();
+	std::cout << "accounts:" << _nbAccounts << ";total:" << _totalAmount << ";deposits:"
+			  << _totalNbDeposits << ";withdrawals:" << _totalNbWithdrawals << std::endl;
+}
 
 Account::Account(int initial_deposit)
 	: _accountIndex(_nbAccounts),
