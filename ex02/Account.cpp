@@ -6,7 +6,7 @@
 /*   By: juestrel <juestrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 14:48:14 by juestrel          #+#    #+#             */
-/*   Updated: 2024/07/29 20:02:24 by juestrel         ###   ########.fr       */
+/*   Updated: 2024/07/29 20:08:07 by juestrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,11 @@ void Account::makeDeposit(int deposit)
 	std::cout << "index:" << this->_accountIndex << ";p_amount:" << this->_amount - deposit
 			  << ";deposit:" << deposit << ";amount:" << this->_amount << ";nb_deposits:"
 			  << this->_nbDeposits << std::endl;
+}
+
+int Account::checkAmount(void) const 
+{
+	return (this->_amount);
 }
 
 void Account::displayStatus(void) const
