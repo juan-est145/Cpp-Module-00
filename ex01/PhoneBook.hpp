@@ -1,13 +1,16 @@
 #ifndef PHONEBOOK_HPP
-#define PHONEBOOK_HPP
-#include "Contact.hpp"
-#include <string>
-#include <iostream>
-#include <sstream>
-#include <cstdlib>
+# define PHONEBOOK_HPP
+
+# include <cstdlib>
+# include <iostream>
+# include <sstream>
+# include <string>
+# include "Contact.hpp"
+# include "main.hpp"
+
 class PhoneBook
 {
-private:
+  private:
 	Contact contacts[8];
 	unsigned int size;
 	Contact getNewContact();
@@ -15,7 +18,7 @@ private:
 	void showContacts();
 	void printField(std::string contactField);
 
-public:
+  public:
 	PhoneBook();
 	~PhoneBook();
 	void add();

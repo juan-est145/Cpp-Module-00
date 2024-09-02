@@ -6,7 +6,7 @@
 /*   By: juestrel <juestrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 17:07:21 by juestrel          #+#    #+#             */
-/*   Updated: 2024/07/28 22:20:51 by juestrel         ###   ########.fr       */
+/*   Updated: 2024/09/02 18:11:03 by juestrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,8 +41,10 @@ std::string PhoneBook::getParameter(std::string parameter)
 	do
 	{
 		std::getline(std::cin, data);
-		if (data.empty())
+		if (data.empty() && !std::cin.eof())
 			std::cout << warning << std::endl;
+		else if (std::cin.eof())
+			exitMessage();
 	} while (data.empty());
 	return (data);
 }
