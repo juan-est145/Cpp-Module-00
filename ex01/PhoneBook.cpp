@@ -6,7 +6,7 @@
 /*   By: juestrel <juestrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 17:07:21 by juestrel          #+#    #+#             */
-/*   Updated: 2024/09/02 18:11:03 by juestrel         ###   ########.fr       */
+/*   Updated: 2024/09/02 18:14:50 by juestrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,6 +106,8 @@ void PhoneBook::search()
 		number = (unsigned int)atoi(indexSelect.c_str());
 		if ((number == 0 && indexSelect[0] != '0') || number >= this->getSize() || contacts[number].getFirstName().length() <= 0)
 			std::cout<< "Invalid index, select any of the previously shown indexes" << std::endl;
+		if (std::cin.eof())
+			exitMessage();
 		else
 			breakLoop = true;
 	}
