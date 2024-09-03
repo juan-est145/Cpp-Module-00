@@ -17,6 +17,7 @@ class PhoneBook
 	std::string getParameter(std::string parameter);
 	void showContacts();
 	void printField(std::string contactField);
+	bool validPhone(std::string phone);
 
   public:
 	PhoneBook();

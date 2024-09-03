@@ -6,7 +6,7 @@
 /*   By: juestrel <juestrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 17:07:21 by juestrel          #+#    #+#             */
-/*   Updated: 2024/09/02 18:14:50 by juestrel         ###   ########.fr       */
+/*   Updated: 2024/09/03 16:06:42 by juestrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,12 @@ Contact PhoneBook::getNewContact()
 	std::string firstName = this->getParameter("first name");
 	std::string lastName = this->getParameter("last name");
 	std::string nickName = this->getParameter("nickname");
-	std::string phone = this->getParameter("phone number");
+	std::string phone;
+	do
+	{
+		phone = this->getParameter("phone number");
+	} while (this->validPhone(phone) == false);
+	
 	std::string secret = this->getParameter("secret");
 	Contact newContact(firstName, lastName, nickName, phone, secret);
 	std::cout << "Data insertion was successful, please enter another command\n"
@@ -75,6 +80,19 @@ void PhoneBook::printField(std::string contactField)
 	if (columnSpace == 0)
 		std::cout << ".";
 	std::cout << "|";
+}
+
+bool PhoneBook::validPhone(std::string phone)
+{
+	for (unsigned int i = 0; i < phone.length(); i++)
+	{
+		if (!(phone[i] >= '0' && phone[i] <= '9'))
+		{
+			std::cout << "Please, enter only numbers" << std::endl;
+			return (false);
+		}
+	}
+	return (true);
 }
 
 void PhoneBook::add()
