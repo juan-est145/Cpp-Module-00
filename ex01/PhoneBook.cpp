@@ -6,7 +6,7 @@
 /*   By: juestrel <juestrel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/28 17:07:21 by juestrel          #+#    #+#             */
-/*   Updated: 2024/09/03 16:12:12 by juestrel         ###   ########.fr       */
+/*   Updated: 2024/09/03 16:16:02 by juestrel         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ Contact PhoneBook::getNewContact()
 	{
 		phone = this->getParameter("phone number");
 	} while (this->validPhone(phone) == false);
-	
 	std::string secret = this->getParameter("secret");
 	Contact newContact(firstName, lastName, nickName, phone, secret);
 	std::cout << "Data insertion was successful, please enter another command\n"
